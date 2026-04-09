@@ -49,8 +49,58 @@ num = int(input("Enter a number: "))
 for i in range(1, 11):
     print(f"{num} x {i} = {num * i}")
 """
-
+"""
 for i in range(1,13):
     for j in range(1,11):
         print(f"{i} x {j} = {i*j}")
     print()
+"""
+
+"""
+list = [1, 4, 3, 6, 5]
+for i in list:
+    if i % 2 == 0:
+        print(f"First even number: {i}")
+        break
+
+p = input("Enter a password: ")
+attempt = 0
+while attempt != 3:
+    if p == "python123":
+        print("Access granted!")
+        break
+    elif p != "python123":
+        print("Incorrect password. Try again.")
+        attempt += 1
+        p = input("Enter a password: ")  
+    if attempt == 3:
+        print("Too many attempts. Access denied.")
+"""
+"""
+list = [4, -2, 7, -5, 3, -1, 9, -8, 2]
+for i in list:
+    if i < 0:
+        continue
+    print(i, end=" ")
+"""
+
+"""
+num = range(1, 21)
+for i in num:
+    if i % 3 == 0:
+        continue
+    print(i, end=" ")
+"""
+num = range(1,51)
+count = 0
+for i in num:
+    if i % 2 == 0 :
+        continue
+    if i % 3 == 0 and i % 5 == 0:
+        print(f"\nTotal odd numbers printed: {count}") 
+        break
+    else:
+        print(i, end=" ")
+        
+        count += 1
+    
