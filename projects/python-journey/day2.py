@@ -91,6 +91,7 @@ for i in num:
         continue
     print(i, end=" ")
 """
+"""
 num = range(1,51)
 count = 0
 for i in num:
@@ -103,4 +104,15 @@ for i in num:
         print(i, end=" ")
         
         count += 1
-    
+"""
+
+def position(t):
+    return t ** 3
+
+def speed(t, gap):
+    return (position(t + gap) - position(t)) / gap
+
+print(speed(3, 1))
+print(speed(3, 0.1))
+print(speed(3, 0.01))
+print(speed(3, 0.000001))
