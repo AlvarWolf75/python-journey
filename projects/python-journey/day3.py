@@ -58,6 +58,42 @@ def average(numbers:list)-> float:
         return 0
     return  sum(numbers) / len(numbers)
 
+def capitalize_words(sentence: str) -> str:
+    """Capitalize first letter of every word."""
+    words = sentence.split()
+    result = []
+    for word in words:
+        result.append(word.capitalize())
+    return " ".join(result)
+
+def find_duplicates(lst):
+    one = []
+    dup = []
+    for i in lst:
+        if i in one and i not in dup:
+            dup.append(i)
+        else:
+            one.append(i)
+
+    return dup
+
+def fib(n: int) -> int:
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    a = 0
+    b = 1
+    for i in range(2, n+1):
+        newval = a + b
+        a = b
+        b = newval
+    return newval
+
+
+
+
+
 
 
 
@@ -94,3 +130,9 @@ if __name__ == "__main__":
     print(average([10, 20, 30]))       # 20.0
     print(average([95, 87, 92]))       # 91.333...
     print(average([]))   
+    print(fib(0))    # 0
+    print(fib(1))    # 1
+    print(fib(2))    # 1
+    print(fib(3))    # 2
+    print(fib(4))    # 3
+    print(fib(5)) 
