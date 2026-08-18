@@ -25,6 +25,8 @@ class BankAccount:
                 print(f"Insuffiecient Funds")
     def get_balance(self):
         return self.__balance 
+    def __str__(self):
+        return f"Account: {self.owner} | Balance: ${self.__balance}"
 
 class Animal:
     def __init__(self,name,sound):
@@ -33,10 +35,20 @@ class Animal:
     def speak(self):
         print(f"{self.name} says {self.sound}")
 class Dog(Animal):
+    species = "Canis lupus"
+    count = 0 
+    def __init__(self,name,sound,breed):
+        super().__init__(name,sound)
+        self.breed = breed
+        Dog.count += 1 
     def fetch(self):
         print(f"{self.name} fetches the ball!")
     def speak(self):           # overrides Animal's speak!
         print(f"{self.name} barks: WOOF WOOF!")
+    def info(self):
+        print(f"{self.name}, {self.breed}")
+    def __str__(self):
+        return f"Dog: {self.name} | Breed: {self.breed}"
 
 
 class Cat(Animal):
@@ -49,6 +61,7 @@ class Shape(ABC):
     @abstractmethod
     def area(self):
         pass
+    @abstractmethod
     def perimeter(self):
         pass
 class Rectangle(Shape):
@@ -90,11 +103,12 @@ if __name__ == "__main__":
     account.withdraw(5000)         # Insufficient funds!
     print(account.get_balance())   # 1300
 
-    dog = Dog("Rex", "Woof")
+    dog = Dog("Rex", "Woof","German Sheperd")
     cat = Cat("Whiskers", "Meow")
     
     dog.speak()     # inherited from Animal
-   # dog.fetch()     # Dog's own method
+    dog.fetch()     # Dog's own method
+    dog.info()
     cat.speak()     # inherited from Animal
     #cat.purr()      # Cat's own method
     r = Rectangle(5, 3)
@@ -104,4 +118,14 @@ if __name__ == "__main__":
     print(r.perimeter())   # 16
     print(c.area())        # 50.24
     print(c.perimeter())   # 25.12
+    print(dog)        # Dog: Rex | Breed: Beagle
+    print(account)
+    dog1 = Dog("Rex", "Woof", "Beagle")
+    dog2 = Dog("Buddy", "Woof", "Poodle")
+
+    print(Dog.count)     # 2
+    print(Dog.species)   # Canis lupus
+    print(dog1.name)     # Rex
+    print(dog2.name)     # Buddy
+
     
